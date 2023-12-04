@@ -126,10 +126,10 @@ class HumanPlayer(BasePlayer):
             bool: True if the move is successful; False otherwise.
         """
         try:
-            position = int(input(f"Player {self.symbol}, enter your move (0-8): "))
+            self.position = int(input(f"Player {self.symbol}, enter your move (0-8): "))
         except ValueError:
             return False
-        return board.make_move(position, self.symbol)
+        return board.make_move(self.position, self.symbol)
 
 
 class BotPlayer(BasePlayer):

@@ -26,13 +26,23 @@ position_category = {0 : 'corner',
                      6 : 'corner', 
                      7 : 'middle', 
                      8 : 'corner'}
-# 300 games
-for x in range(300):
+# 30 games
+for x in range(30):
     game_id = x
     move_count = 0
     data = {}
-    player1 = BotPlayer("X")
+    # To play the game
+    num_human_players = input("How many human players? (0/1/2): ")
+    player1 = HumanPlayer("X")
     player2 = BotPlayer("O")
+    if num_human_players == "0":
+        player1 = BotPlayer("X")
+    elif num_human_players == "1":
+        player2 = BotPlayer("O")
+    elif num_human_players == "2":
+        player2 = HumanPlayer("O")
+    else:
+        print("Invalid input, defaulting to 0 human player.")
     game = Game(player1, player2)
     data['game_id'] = game_id
     while True:
